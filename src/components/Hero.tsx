@@ -2,6 +2,7 @@ import { ProgressiveButton } from '@/components/ui/ProgressiveButton';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Image from 'next/image';
 import { FaPaw } from "react-icons/fa";
+import { PiBoneFill } from "react-icons/pi";
 import { cn } from '@/lib/utils';
 
 
@@ -18,15 +19,15 @@ interface HeroProps {
 }
 
 export default function HeroComponent({
-    tagline = 'INNOVATIVE DESIGN',
-    title = 'CREATE STUNNING VISUAL EXPERIENCES',
-    description = 'Transform your digital presence with our cutting-edge mosaic layouts. Combine aesthetics with functionality for maximum impact.',
+    tagline,
+    title = '',
+    description,
     primaryButtonText = 'Get Started',
     primaryButtonHref = '#',
     secondaryButtonText = 'Learn More',
     secondaryButtonHref = '#',
     backgroundColor = '#ffffff',
-    popColor = '#3b82f6',
+    popColor,
 }: HeroProps) {
     return (
         <section
@@ -75,7 +76,7 @@ export default function HeroComponent({
                                 size="lg"
                                 className="rounded-md w-fit"
                                 hoverEffect="reveal-icon"
-                                icon={<FaPaw />}
+                                icon={<PiBoneFill />}
                                 iconColor="#ffffff"
                             >
                                 {secondaryButtonText}

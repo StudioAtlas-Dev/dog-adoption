@@ -145,15 +145,7 @@
 ## 2. **Design & Styling Guidelines**
 
 ### 2.1. **Color Palette**
-- **Primary Colors:**  
-  - Primary CTA/Button Color: #417B3D 
-  - Secondary Highlight Color: #dc143c
-- **Secondary Colors:**  
-  - Section Background Color: #F0F5F2
-  - Main Text/Heading Color: #333333
-- **Neutrals:**  
-  - Page Background Color: #FFFFFF
-  - Footer/Darker Sections Color: #4A4A4A
+- Defined in tailwind.config.ts
 
 ### 2.2. **Typography**
 - **Header Font:**  

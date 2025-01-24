@@ -52,7 +52,7 @@ export default function SectionTitle({
         id={titleId}
         className={cn(
           'text-3xl sm:text-4xl font-bold tracking-tight',
-          dark ? 'text-white' : 'text-neutral-900 dark:text-neutral-100',
+          dark ? 'text-white' : 'text-neutral-900',
           alignLeft && 'lg:mx-0',
           titleClassName
         )}
@@ -63,7 +63,7 @@ export default function SectionTitle({
         <p
           className={cn(
             'mt-4 text-lg',
-            dark ? 'text-[#E6E6E6]' : 'text-neutral-800 dark:text-neutral-400',
+            dark ? 'text-[#E6E6E6]' : 'text-mainText',
             alignLeft && 'lg:mx-0',
             descriptionClassName
           )}

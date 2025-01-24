@@ -146,14 +146,14 @@
 
 ### 2.1. **Color Palette**
 - **Primary Colors:**  
-  - Soft Orange (`#FFA726`) for buttons and primary CTAs.  
-  - Sky Blue (`#42A5F5`) for secondary highlights.
+  - Primary CTA/Button Color: #417B3D 
+  - Secondary Highlight Color: #dc143c
 - **Secondary Colors:**  
-  - Tan (`#FFCC80`) for section backgrounds.  
-  - Dark Brown (`#6D4C41`) for main text or headings.
+  - Section Background Color: #F0F5F2
+  - Main Text/Heading Color: #333333
 - **Neutrals:**  
-  - Light Gray (`#F5F5F5`) for page backgrounds.  
-  - Charcoal (`#333333`) for footer or darker sections.
+  - Page Background Color: #FFFFFF
+  - Footer/Darker Sections Color: #4A4A4A
 
 ### 2.2. **Typography**
 - **Header Font:**  

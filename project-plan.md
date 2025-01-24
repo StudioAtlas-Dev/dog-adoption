@@ -12,11 +12,11 @@
   - 3 to 4 featured adoptable dogs in a responsive grid or carousel.  
   - Hover effect with slight zoom and color overlay.
 - **Quick Highlights**  
-  - Short intro to the shelter’s mission.  
+  - Short intro to the shelter's mission.  
   - React Icons for quick links (e.g., `<FaPaw />` or `<FaBone />`) to Adoption, Volunteer, Donate pages.
 - **Upcoming Events Preview**  
   - Display 2-3 upcoming events with minimal info (date, title, brief detail).  
-  - “See All Events” link to full Events page.
+  - "See All Events" link to full Events page.
 
 ---
 
@@ -41,7 +41,7 @@
 - **Dog Profile Page**  
   - Larger photo gallery (use Next.js Image component for optimization).  
   - Detailed info: temperament, history, medical notes.  
-  - “Apply to Adopt” button linking to an online form or separate application page.
+  - "Apply to Adopt" button linking to an online form or separate application page.
 - **Adoption Process**  
   - Step-by-step guide with simplified bullet points.  
   - FAQ section using an accordion pattern for easy reading.
@@ -106,7 +106,7 @@
 
 ### 1.9. **Blog/News**
 - **Articles & Updates**  
-  - Simple category tags for easy filtering (e.g., “Training Tips,” “Shelter News”).  
+  - Simple category tags for easy filtering (e.g., "Training Tips," "Shelter News").  
   - Summaries on listing page; click to read full post.  
 - **Press Releases**  
   - Separate or combined with blog, highlighting official announcements.
@@ -138,7 +138,7 @@
 - **Social Media**  
   - React Icons for Facebook, Instagram, YouTube, etc.  
 - **Newsletter Signup**  
-  - Simple email field and “Subscribe” button.  
+  - Simple email field and "Subscribe" button.  
 
 ---
 
@@ -149,9 +149,9 @@
 
 ### 2.2. **Typography**
 - **Header Font:**  
-  - “Poppins” (Google Fonts) for headings and important text.  
+  - "Poppins" (Google Fonts) for headings and important text.  
 - **Body Font:**  
-  - “Roboto” (Google Fonts) for paragraphs and details.
+  - "Roboto" (Google Fonts) for paragraphs and details.
 
 ### 2.3. **Key UI Elements**
 - **Buttons:**  
@@ -174,24 +174,50 @@
   - Include Open Graph tags for social sharing previews (especially important for dog profile pages).
 
 ### 3.2. **Routing**
-- Leverage **file-based routing** in Next.js:  
-  - `pages/index.js` for Home.  
-  - `pages/adoption/[dogId].js` for individual dog profiles.  
-  - `pages/events/[eventId].js` for individual event details.
+- Leverage **Next.js 15 App Router** with TypeScript:
+  - `app/page.tsx` for Home
+  - `app/adoption/[dogId]/page.tsx` for individual dog profiles
+  - `app/events/[eventId]/page.tsx` for individual event details
+  - `app/layout.tsx` for root layout
+  - Use React Server Components (RSC) by default
+  - Add 'use client' directive only when needed for client-side interactivity
 
-### 3.3. **Images**
-- Utilize the **Next.js Image component** for optimization.  
-- Serve images from a CDN or local folder, ensuring responsive breakpoints (`width` and `height` props).
+### 3.3. **Type Safety**
+- Implement strong TypeScript types:
+  - Define interfaces for all data models (e.g., `Dog`, `Event`, `BlogPost`)
+  - Use Zod for runtime validation of external data
+  - Leverage TypeScript template literal types for routes
+  - Create type-safe API endpoints using Route Handlers
 
-### 3.4. **Styling Approach**
-- Consider **Tailwind CSS** for rapid development and consistent spacing, or use **styled-components** if you prefer CSS-in-JS.  
-- Keep a dedicated styles folder or design system for color variables and typography.
+### 3.4. **Images**
+- Utilize the **Next.js Image component** with proper TypeScript props:
+  ```tsx
+  import { ImageProps } from 'next/image'
+  
+  interface OptimizedImageProps extends Omit<ImageProps, 'src'> {
+    src: string;
+    alt: string;
+  }
+  ```
+- Serve images from a CDN or local folder, ensuring responsive breakpoints
+- Implement proper error boundaries for image loading failures
 
-### 3.5. **Dynamic Data & CMS**
-- If you need dynamic data, consider a headless CMS (like Contentful, Sanity, or Strapi) for dog listings, events, and blog posts.  
-- Use **Incremental Static Regeneration (ISR)** or **Server-Side Rendering (SSR)** as needed for up-to-date content.
+### 3.5. **Styling Approach**
+- Use **Tailwind CSS** with proper TypeScript integration:
+  - Leverage `tailwind-merge` for conditional classes
+  - Use `clsx` or `cn` utility for type-safe class combinations
+  - Create type-safe variants with `cva` from `class-variance-authority`
+- Maintain type-safe theme configuration in `tailwind.config.ts`
 
-### 3.6. **Security & Performance**
+### 3.6. **Dynamic Data & CMS**
+- If using a headless CMS, implement type-safe data fetching:
+  - Generate TypeScript types from CMS schema
+  - Use tRPC or GraphQL with proper type generation
+  - Implement proper error handling and loading states
+- Use **Server Components** for data fetching where possible
+- Implement proper caching strategies using Next.js 15 caching mechanisms
+
+### 3.7. **Security & Performance**
 - Ensure **HTTPS** via hosting platform (e.g., Vercel).  
 - Regularly test **Core Web Vitals** and optimize (lazy load images, reduce unused scripts).  
 - Add **CSRF protection** if forms handle sensitive info.

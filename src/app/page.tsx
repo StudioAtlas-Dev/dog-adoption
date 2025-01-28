@@ -1,6 +1,6 @@
 import Image from "next/image";
 import HeroComponent from "@/components/Hero";
-
+import FeaturedCards from "@/components/FeaturedCards";
 export default function Home() {
   return (
     <>
@@ -14,6 +14,7 @@ export default function Home() {
         secondaryButtonText="Donate"
         popColor="primary"
       />
+      <FeaturedCards />
     </>
   );
 }
